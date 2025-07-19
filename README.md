@@ -1,6 +1,6 @@
 # Design and Implementation of an API
 
-# Gateway for Microservices on Kubernetes
+## Gateway for Microservices on Kubernetes
 
 My project is a **microservices** architecture that uses an API Gateway. It has been developed in
 **Kubernetes** , using **Minikube**. Minikube offers a single Kubernetes cluster, composed of a single
@@ -83,5 +83,7 @@ This e-commerce application allows a user to:
 
 The general architecture can be represented like this:
 ![General architecture](https://i.postimg.cc/xdhhQyJ1/General-Architecture-Cloud.png)
+
+client.py is a Python script simulating a simple client (in order to check the correctness of the service), while dos-attack.py is a Python script that simulates a dos attack to the application.
 
 For more information about this project, check the report I've written for the oral presentation.
