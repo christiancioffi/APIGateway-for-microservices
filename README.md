@@ -1,6 +1,4 @@
-# Design and Implementation of an API
-
-## Gateway for Microservices on Kubernetes
+# Design and Implementation of an API Gateway for Microservices on Kubernetes
 
 My project is a **microservices** architecture that uses an API Gateway. It has been developed in
 **Kubernetes** , using **Minikube**. Minikube offers a single Kubernetes cluster, composed of a single
