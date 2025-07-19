@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: ratelimit-middleware
+  namespace: default
+spec:
+  rateLimit:
+    period: 1m
+    average: 20   # Limite medio di richieste al minuto
+    burst: 40
+    sourceCriterion:
+      ipStrategy: {}
+

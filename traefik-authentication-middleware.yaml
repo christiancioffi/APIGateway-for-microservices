@@ -1,0 +1,12 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: authentication-middleware
+  namespace: default
+spec:
+  forwardAuth:
+    address: "https://authentication-microservice.default.svc.cluster.local/validate"
+    authResponseHeaders:
+      - "X-User-ID"
+    tls:
+      insecureSkipVerify: true

@@ -1,0 +1,60 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: api-gateway
+  namespace: default
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Path(`/authentication/login`) || Path(`/authentication/registration`)"
+      kind: Rule
+      middlewares:
+        - name: ratelimit-middleware
+        - name: inflight-request-middleware
+      services:
+        - name: authentication-microservice
+          namespace: default
+          port: 443
+    - match: "PathPrefix(`/authentication/`) && !(Path(`/authentication/login`) || Path(`/authentication/registration`))"
+      kind: Rule
+      middlewares:
+        #- name: ratelimit-middleware
+        - name: authentication-middleware
+        #- name: inflight-request-middleware
+      services:
+        - name: authentication-microservice
+          namespace: default
+          port: 443
+    - match: "PathPrefix(`/products/admin`)"
+      kind: Rule
+      middlewares:
+        - name: ratelimit-middleware
+        - name: authentication-middleware
+        - name: authorization-middleware  #Authorization
+        - name: inflight-request-middleware
+      services:
+        - name: products-microservice
+          namespace: default
+          port: 443
+    - match: "PathPrefix(`/products`)"
+      kind: Rule
+      middlewares:
+        - name: ratelimit-middleware
+        - name: authentication-middleware
+        - name: inflight-request-middleware
+      services:
+        - name: products-microservice
+          namespace: default
+          port: 443
+    - match: "PathPrefix(`/orders`)"
+      kind: Rule
+      middlewares:
+        - name: ratelimit-middleware
+        - name: authentication-middleware
+        - name: inflight-request-middleware
+      services:
+        - name: orders-microservice
+          namespace: default
+          port: 443
+
