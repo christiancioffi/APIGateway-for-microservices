@@ -82,4 +82,6 @@ This e-commerce application allows a user to:
 - Retrieve a special product if the user is the _admin_ ( _/products/admin_ )
 
 The general architecture can be represented like this:
-![General architecture](https://ibb.co/SDB3xmS9)
+![General architecture](https://i.postimg.cc/xdhhQyJ1/General-Architecture-Cloud.png)
+
+For more information about this project, check the report I've written for oral presentation.
