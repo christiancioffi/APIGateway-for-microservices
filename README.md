@@ -84,4 +84,4 @@ This e-commerce application allows a user to:
 The general architecture can be represented like this:
 ![General architecture](https://i.postimg.cc/xdhhQyJ1/General-Architecture-Cloud.png)
 
-For more information about this project, check the report I've written for oral presentation.
+For more information about this project, check the report I've written for the oral presentation.
